@@ -1,0 +1,29 @@
+---
+import { Toaster } from "@/components/ui/sonner";
+import "../styles/global.css";
+import AppHeader from "@/components/AppHeader";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Remember</title>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@0.4/face_mesh.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.3/camera_utils.js" crossorigin="anonymous"></script>
+    
+  </head>
+
+  <body>
+    <div>
+      <AppHeader />
+      <slot />
+      <Toaster client:only />
+    </div>
+  </body>
+</html>

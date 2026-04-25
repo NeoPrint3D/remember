@@ -1,0 +1,6 @@
+uvicorn
+fastapi
+sqlmodel
+pydantic
+python-multipart
+uuid

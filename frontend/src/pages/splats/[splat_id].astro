@@ -1,0 +1,17 @@
+---
+import LayoutApp from "../../layouts/Layout.astro";
+import PagesSplatView from "../../components/PagesSplatView";
+import type { SplatMetadata } from "@/types/splat";
+const { splat_id } = Astro.params;
+
+const res = await fetch(`https://api-remember.theneocorner.com/splat/${splat_id}`);
+if (!res.ok) {
+  throw new Error(`Failed to fetch splat with id ${splat_id}`);
+}
+
+const data = (await res.json()) as { splat: SplatMetadata };
+---
+
+<LayoutApp>
+  <PagesSplatView client:only splatId={data.splat.id} />
+</LayoutApp>

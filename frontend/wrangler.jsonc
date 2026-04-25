@@ -1,0 +1,32 @@
+/**
+ * For more details on how to configure Wrangler, refer to:
+ * https://developers.cloudflare.com/workers/wrangler/configuration/
+ */
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "calendar",
+  "main": "./dist/_worker.js/index.js",
+  "compatibility_date": "2025-10-04",
+  "keep_vars": true,
+  "compatibility_flags": [
+    "nodejs_compat",
+  ],
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "./dist",
+  },
+  "observability": {
+    "enabled": true,
+  },
+  "placement": {
+    "mode": "smart",
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "usafa-calendar-prod",
+      "database_id": "e6257284-1854-49b9-b528-0496ceb0e9af",
+      "migrations_dir": "src/lib/database/migrations",
+    },
+  ],
+}
